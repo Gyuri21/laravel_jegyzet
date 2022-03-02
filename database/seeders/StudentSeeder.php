@@ -15,13 +15,19 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
+        $faker = \Faker\Factory::create();
+
         DB::table("students")->insert([
-            "name"=>"Ka Pál",
-            "email"=>"pali@valami.hu",
-            "phone"=> "123456789",
-            "age"=>10,
-            "gender"=>"male",
-            "address"=>"Szeged Kő u. 3."
+            "name"=>$faker->name,
+            "email"=>$faker->safeEmail,
+            "phone"=> $faker->phoneNumber,
+            "age"=>$faker->numberBetween(25,45),
+            "gender"=>$faker->randomElement([
+                "male",
+                "female",
+                "other"
+            ]),
+            "address"=>$faker->address
         ]);
     }
 }
