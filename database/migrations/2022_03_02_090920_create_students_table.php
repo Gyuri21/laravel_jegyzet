@@ -21,7 +21,8 @@ return new class extends Migration
             $table->integer("age")->default(1);
             $table->enum("gender",["male","female","other"]);
             $table->text("address")->comment("Teljes cim");
-            $table->timestamps();
+            $table->timestamp("created_at")->useCurrent();
+            $table->timestamp("updated_at")->useCurrent();
         });
     }
 
