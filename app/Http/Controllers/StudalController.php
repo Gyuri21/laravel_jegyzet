@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreStudalData;
+use Illuminate\Support\Facades\DB;
 use Validator;
 
 class StudalController extends Controller
@@ -50,6 +51,21 @@ class StudalController extends Controller
 
 
         
+    }
+    public function listStudent(){
+        //$students = DB::table("students")->where("id",5)->select("name as név","email as levél")->get(); //first() ---első---
+        //$students = DB::table("students")->where("name","Andre Lynch")->where("id",1)->get();
+        // $students = DB::table("students")->where("id",1)->where(function($querry){
+        //     $querry->where("name","Andre Lynch")->orWhere("email","jamil98@example.net");
+        // })->get();
+        //$students = DB::table("students")->whereBetween("id",[2,40])->get();
+
+
+        //$students = DB::table("students")->select("students.name as Név","students.email as email","courses.course as tanfolyam","courses.price as Ár")->join("courses","students.id","=","courses.student_id")->get();
+        $students = DB::table("students")->select("students.name as Név","students.email as email","courses.course as tanfolyam","courses.price as Ár")->rightjoin("courses","students.id","=","courses.student_id")->get();
+
+        echo "<pre>";
+        print_r($students); 
     }
 
 }

@@ -47,10 +47,9 @@ Route::get("/kapcsolat", function(){
     return view ("kapcsolat",[
 
         "message"=>"Laravel@laravel.hu"
-    ]);
-    
-      
+    ]);      
 });
+
 Route::get("/get-students",[Site::class,"getStudents"]);
 ROute::get("/add-students",[Site::class,"insertStudent"]);
 Route::get("update-students",[Site::class,"updateStudent"]);
@@ -67,6 +66,7 @@ Route::match(["get","post"],"/add-product",[ProductsController::class,"addProduc
 
 Route::get("/add-studal",[StudalController::class,"addStudal"]);
 Route::post("/submit-studal",[StudalController::class,"submitStudal"]);
+Route::get("/list-students",[StudalController::class,"listStudent"]);
 
 
 

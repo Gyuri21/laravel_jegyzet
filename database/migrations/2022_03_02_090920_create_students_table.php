@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
+        /*Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string("name",120);
             $table->string("email",50) ->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text("address")->comment("Teljes cim");
             $table->timestamp("created_at")->useCurrent();
             $table->timestamp("updated_at")->useCurrent();
-        });
+        });*/
     }
 
     /**
